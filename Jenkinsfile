@@ -49,7 +49,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Clone the public repository
-                git url: 'https://github.com/onaiv22/devops-test.git'
+                git url: 'https://github.com/Ozzydevgit/terraform-project.git'
             }
         }
         stage('Run terraform init') {

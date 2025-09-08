@@ -30,14 +30,14 @@ resource "aws_lb_target_group" "main" {
     lb_target_group_arn   = aws_lb_target_group.main.arn
 }
 
-resource "aws_route53_record" "www" {
-  zone_id = data.aws_route53_zone.public.zone_id
-  name    = "web.ozzy-dev.com"
-  type    = "A"
+# resource "aws_route53_record" "www" {
+#   zone_id = data.aws_route53_zone.public.zone_id
+#   name    = "web.ozzy-dev.com"
+#   type    = "A"
 
-  alias {
-    name = aws_lb.main.dns_name
-    zone_id = aws_lb.main.zone_id
-    evaluate_target_health = false
-  }
-}
+#   alias {
+#     name = aws_lb.main.dns_name
+#     zone_id = aws_lb.main.zone_id
+#     evaluate_target_health = false
+#   }
+# }

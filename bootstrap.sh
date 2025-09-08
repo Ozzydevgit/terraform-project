@@ -2,9 +2,9 @@
 
 
 # ensure you have docker running
-sudo apt-get update
-sudo apt-get install docker.io unzip curl  -y
-sudo systemctl start docker
+sudo yum update
+sudo yum --skip-broken install docker unzip curl  -y
+sudo service docker start
 sudo usermod -a -G docker $(whoami)
 newgrp docker
 
@@ -14,10 +14,10 @@ unzip awscliv2.zip
 sudo ./aws/install
 
 # login to ecr
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 767398043045.dkr.ecr.us-east-1.amazonaws.com
+sudo aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 767398043045.dkr.ecr.eu-west-1.amazonaws.com
 
 # docker pull the image down from ecr
-docker run -d -p 3000:3000 767398043045.dkr.ecr.us-east-1.amazonaws.com/wipro:latest
+sudo docker run -d -p 3000:3000 767398043045.dkr.ecr.eu-west-1.amazonaws.com/wipro-test:latest
 
-
+sudo docker run -d -p 8080:8080 767398043045.dkr.ecr.eu-west-1.amazonaws.com/wipro-test:jenkins
 
