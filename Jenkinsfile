@@ -48,8 +48,9 @@ pipeline {
         }
         stage('Checkout Code') {
             steps {
-                // Clone the public repository
-                git url: 'https://github.com/Ozzydevgit/terraform-project.git'
+                git branch 'main',
+                    url: 'https://github.com/Ozzydevgit/terraform-project.git'
+
             }
         }
         stage('Run terraform init') {
