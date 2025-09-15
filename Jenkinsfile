@@ -15,7 +15,6 @@ pipeline {
         AWS_PROFILE_NAME = 'default'
         AWS_CLI_PATH = "${HOME}/.local/bin"
         TF_IN_AUTOMATION = 'true'
-        AWS_DEFAULT_REGION = 'US-EAST-1'
     }
 
     stages {
