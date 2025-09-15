@@ -77,12 +77,12 @@ pipeline {
         stage('Terraform apply') {
             steps {
                 script {
-                    input message: "Do you want to proceed with apply?",
-                          ok: "Yes, apply"
+                    input message: "Do you want to proceed with destroy?",
+                          ok: "Yes, destroy"
                     ansiColor('xterm') {
                         sh '''
                             export PATH=${AWS_CLI_PATH}:$PATH
-                            terraform apply -auto-approve
+                            terraform destroy -auto-approve
                         '''
                     }      
                 }
