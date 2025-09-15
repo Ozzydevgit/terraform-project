@@ -14,6 +14,8 @@ pipeline {
         AWS_DEFAULT_REGION = 'us-east-1'
         AWS_PROFILE_NAME = 'default'
         AWS_CLI_PATH = "${HOME}/.local/bin"
+        TF_IN_AUTOMATION = 'true'
+        AWS_DEFAULT_REGION = 'US-EAST-1'
     }
 
     stages {
@@ -68,10 +70,7 @@ pipeline {
                 ansiColor('xterm') {
                     sh '''
                         export PATH=${AWS_CLI_PATH}:$PATH
-                        terraform plan \
-                        -var "aws_access_key_id=${AWS_ACCESS_KEY_ID}" \
-                        -var "aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}" \
-                        -var "aws_region=${AWS_DEFAULT_REGION}"
+                        terraform plan 
                     '''
                 }
             }
